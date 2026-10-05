@@ -1,361 +1,505 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>슬로우파머 소개 | 충주 수안보 자연주의 농장</title>
-  <meta name="description" content="충주 수안보 온천에서 1km, 숲과 계곡 사이의 자연주의 농장 슬로우파머를 소개합니다. 꽃차 만들기, 숲속 트레킹, 산나물 체험.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --pine: #1f2a24;      /* 깊은 숲 */
-      --moss: #4f6b4a;      /* 이끼 */
-      --mist: #eef2ea;      /* 아침 안개 */
-      --paper: #fbfcf8;     /* 종이 */
-      --tea: #b9832a;       /* 우린 꽃차 */
-      --stream: #7fa3a0;    /* 계곡물 */
-      --ink: #26302a;
-      --ink-soft: #55625a;
-      --line: #d5ddd0;
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="옹달샘 2027년 문화사업 연간 계획: 밑줄스테이, 별의 별책스테이, 독서모임, 리딩파티, 북토크, 맥주파티, 북트렁크, 가드닝샵.">
+<title>2027 옹달샘 문화사업 계획</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  /* 배치: 한 해를 '사업 × 달' 표 한 장으로 먼저 보여 주고, 그 아래에 사업마다 그림 한 점과 설명을 둔다. 밑줄(형광펜)이 반복되는 표식. */
+  :root {
+    --paper: #f6f8f3;
+    --surface: #ffffff;
+    --ink: #17302b;
+    --ink-soft: #53665f;
+    --line: #d4dcd4;
+    --spring: #1c7f72;   /* 옹달샘 물빛 */
+    --mark: #f6e27a;     /* 형광펜 밑줄 */
+    --join: #1c7f72;     /* 참여 프로그램 */
+    --out: #b8741a;      /* 야외 행사 */
+    --shop: #5a8f3a;     /* 상설 운영 */
+    --font-display: "Hahmlet", "Nanum Myeongjo", "Batang", serif;
+    --font-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #101a18; --surface: #16231f; --ink: #e7efea; --ink-soft: #a3b5ae; --line: #2b3b36;
+      --spring: #62c8b8; --mark: #6f6420; --join: #62c8b8; --out: #e3a548; --shop: #93c56e;
+      color-scheme: dark;
     }
+  }
+  :root[data-theme="dark"] {
+    --paper: #101a18; --surface: #16231f; --ink: #e7efea; --ink-soft: #a3b5ae; --line: #2b3b36;
+    --spring: #62c8b8; --mark: #6f6420; --join: #62c8b8; --out: #e3a548; --shop: #93c56e;
+    color-scheme: dark;
+  }
 
-    * { box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: border-box; }
 
-    html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.75;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
 
-    body {
-      margin: 0;
-      background: var(--mist);
-      color: var(--ink);
-      font-family: "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-      font-size: 1.0625rem;
-      line-height: 1.85;
-      word-break: keep-all;
-    }
+  .page {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+    padding-block: clamp(1.5rem, 5vw, 3.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 8vw, 5rem);
+  }
 
-    h1, h2, h3 {
-      font-family: "Gowun Batang", "Nanum Myeongjo", serif;
-      font-weight: 700;
-      line-height: 1.35;
-      margin: 0;
-    }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+    text-wrap: balance;
+  }
+  p { margin: 0; }
 
-    p { margin: 0 0 1em; }
+  .mark { background: linear-gradient(transparent 58%, var(--mark) 58%); padding-inline: 0.1em; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-    a { color: var(--moss); text-underline-offset: 0.2em; }
-    a:focus-visible, .map-link:focus-visible {
-      outline: 3px solid var(--tea);
-      outline-offset: 3px;
-    }
+  /* 머리 */
+  .top { display: flex; flex-direction: column; gap: 1.5rem; }
+  .top svg { display: block; width: 100%; height: auto; aspect-ratio: 10 / 3; border-radius: 1.25rem; }
+  .top-text { display: flex; flex-direction: column; gap: 0.6rem; }
+  .doc-kind { color: var(--ink-soft); font-size: 0.95rem; }
+  h1 { font-size: clamp(2rem, 6vw, 3.4rem); letter-spacing: -0.01em; }
+  .lede { max-width: 36em; font-size: 1.1rem; color: var(--ink-soft); }
 
-    /* ── 첫 화면 ── */
-    .hero {
-      position: relative;
-      min-height: 92vh;
-      background: var(--pine);
-      color: var(--paper);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      gap: 1.5rem;
-      padding: clamp(1.5rem, 5vw, 4rem);
-    }
+  section { display: flex; flex-direction: column; gap: 1.5rem; }
+  h2 { font-size: clamp(1.4rem, 3.4vw, 1.9rem); }
+  .section-note { color: var(--ink-soft); max-width: 40em; }
 
-    .contours {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .contours path {
-      fill: none;
-      stroke: var(--moss);
-      stroke-width: 1.5;
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-      animation: draw 5s ease-out forwards;
-    }
-    .contours path:nth-of-type(2) { animation-delay: 0.3s; }
-    .contours path:nth-of-type(3) { animation-delay: 0.6s; }
-    .contours path:nth-of-type(4) { animation-delay: 0.9s; }
-    .contours path:nth-of-type(5) { animation-delay: 1.2s; }
-    .contours path:nth-of-type(6) { animation-delay: 1.5s; }
-    .contours path:nth-of-type(7) { animation-delay: 1.8s; }
-    .contours .pond { fill: var(--stream); opacity: 0.85; }
+  /* 범례 */
+  .legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; margin: 0; padding: 0; list-style: none; font-size: 0.9rem; color: var(--ink-soft); }
+  .legend li { display: flex; align-items: center; gap: 0.5rem; }
+  .dot { width: 0.8rem; height: 0.8rem; border-radius: 50%; background: var(--join); flex: none; }
+  .dot.out { background: var(--out); }
+  .dot.shop { background: var(--shop); border-radius: 3px; width: 1.4rem; height: 0.5rem; }
+  .dot.water { background: var(--out); box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--spring); }
 
-    @keyframes draw { to { stroke-dashoffset: 0; } }
+  /* 한 해 표 */
+  .year-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; }
+  .year { width: 100%; min-width: 21rem; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
+  .year th, .year td { padding: 0; height: 3.4rem; text-align: center; border-bottom: 1px solid var(--line); }
+  .year tbody tr:last-child th, .year tbody tr:last-child td { border-bottom: 0; }
+  .year thead th { height: 2.4rem; font-weight: 500; font-size: 0.85rem; color: var(--ink-soft); }
+  .year .name-col { width: 9.5rem; }
+  .year tbody th { text-align: left; padding-left: 1rem; font-weight: 600; font-size: 0.95rem; line-height: 1.3; }
+  .year tbody th small { display: block; font-weight: 400; font-size: 0.8rem; color: var(--ink-soft); }
+  .year td + td { border-left: 1px dashed var(--line); }
+  .year td.on::before {
+    content: ""; display: inline-block; width: 0.85rem; height: 0.85rem; border-radius: 50%;
+    background: var(--join); vertical-align: middle;
+  }
+  .year tr.out td.on::before { background: var(--out); }
+  .year tr.out td.water::before { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--spring); }
+  .year tr.shop td.on { background: linear-gradient(var(--shop), var(--shop)) center / 100% 0.5rem no-repeat; border-left-color: transparent; }
+  .year tr.shop td.on::before { content: none; }
+  .year tr.shop td.open { background: linear-gradient(var(--shop), var(--shop)) right center / 62% 0.5rem no-repeat; }
+  .year tr.shop td.open::before {
+    content: ""; display: inline-block; width: 0.85rem; height: 0.85rem; border-radius: 3px; background: var(--shop);
+  }
 
-    .hero-lead {
-      position: relative;
-      max-width: 22em;
-      font-size: clamp(1.1rem, 2.4vw, 1.45rem);
-      line-height: 1.8;
-      margin: 0;
-    }
-    .hero-lead span { display: block; color: #c9d6c4; font-size: 0.85em; margin-top: 0.8em; }
+  /* 사업 카드 */
+  .programs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem); }
+  .program { display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+  .program svg { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; border-radius: 1rem; }
+  .program-body { display: flex; flex-direction: column; gap: 0.5rem; }
+  .kind { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--ink-soft); }
+  h3 { font-size: 1.35rem; }
+  h3 .draft { font-family: var(--font-body); font-weight: 500; font-size: 0.75rem; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 999px; padding: 0.1rem 0.55rem; margin-left: 0.4rem; vertical-align: middle; white-space: nowrap; }
+  .when { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; margin: 0.3rem 0 0; font-size: 0.92rem; }
+  .when div { display: flex; gap: 0.5rem; }
+  .when dt { color: var(--ink-soft); }
+  .when dd { margin: 0; font-weight: 600; }
 
-    .hero h1 {
-      position: relative;
-      writing-mode: vertical-rl;
-      font-size: clamp(3.4rem, min(13vw, 11vh), 8.5rem);
-      letter-spacing: 0.14em;
-      line-height: 1;
-      align-self: start;
-      justify-self: end;
-    }
+  /* 확인사항 */
+  .checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+  .checks li { display: grid; grid-template-columns: 1.4rem 1fr; gap: 0.9rem; padding-block: 1rem; border-bottom: 1px solid var(--line); }
+  .checks li::before { content: ""; width: 1.1rem; height: 1.1rem; margin-top: 0.3rem; border: 2px solid var(--spring); border-radius: 4px; }
+  .checks strong { display: block; font-weight: 600; }
+  .checks span { color: var(--ink-soft); }
 
-    /* ── 본문 ── */
-    main {
-      max-width: 44rem;
-      margin: 0 auto;
-      padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2rem) 2rem;
-    }
+  footer { color: var(--ink-soft); font-size: 0.88rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
 
-    section { margin-bottom: clamp(3.5rem, 9vw, 6rem); }
-
-    h2 {
-      font-size: clamp(1.5rem, 3.6vw, 2rem);
-      margin-bottom: 1.2rem;
-      color: var(--pine);
-    }
-
-    .intro { font-size: 1.15rem; }
-
-    /* 한눈에 보기 */
-    .facts { margin: 0; border-top: 1px solid var(--line); }
-    .facts div {
-      display: grid;
-      grid-template-columns: 6.5em 1fr;
-      gap: 1rem;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .facts dt { color: var(--moss); font-family: "Gowun Batang", serif; font-weight: 700; }
-    .facts dd { margin: 0; }
-    .facts small { display: block; color: var(--ink-soft); font-size: 0.85em; }
-
-    /* 체험 */
-    .program { padding: 1.4rem 0 0.6rem; border-top: 1px solid var(--line); }
-    .program:last-child { border-bottom: 1px solid var(--line); }
-    .program h3 { font-size: 1.25rem; margin-bottom: 0.4rem; color: var(--tea); }
-
-    /* 농장 안 공간 */
-    .places {
-      list-style: none;
-      margin: 0 0 1.4rem;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 0.6rem;
-    }
-    .places li {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0.25rem 1rem;
-    }
-
-    /* 걸어온 길 */
-    .history { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--stream); }
-    .history li {
-      display: grid;
-      grid-template-columns: 4.2em 1fr;
-      gap: 1rem;
-      padding: 0.2rem 0 1.3rem 1.2rem;
-    }
-    .history time {
-      font-family: "Gowun Batang", serif;
-      font-weight: 700;
-      color: var(--pine);
-      font-size: 1.15rem;
-    }
-
-    /* 가는 길 */
-    address { font-style: normal; font-size: 1.15rem; margin-bottom: 0.3rem; }
-    .map-link {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--moss);
-      color: var(--paper);
-      text-decoration: none;
-      border-radius: 6px;
-    }
-    .map-link:hover { background: var(--pine); }
-
-    .notice {
-      background: var(--paper);
-      border-left: 4px solid var(--tea);
-      padding: 1.2rem 1.4rem;
-    }
-    .notice p:last-child { margin-bottom: 0; }
-
-    /* 출처 */
-    footer {
-      background: var(--pine);
-      color: #c9d6c4;
-      font-size: 0.9rem;
-      padding: clamp(2rem, 6vw, 3.5rem) clamp(1.25rem, 5vw, 2rem);
-    }
-    footer .inner { max-width: 44rem; margin: 0 auto; }
-    footer h2 { color: var(--paper); font-size: 1.15rem; margin-bottom: 0.8rem; }
-    footer ul { margin: 0 0 1.5rem; padding-left: 1.2em; }
-    footer a { color: #dfe8da; }
-    footer p { margin: 0; }
-
-    @media (max-width: 30rem) {
-      .hero { grid-template-columns: 1fr auto; min-height: 88vh; }
-      .facts div { grid-template-columns: 5em 1fr; }
-      .history li { grid-template-columns: 3.6em 1fr; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .contours path { animation: none; stroke-dashoffset: 0; }
-    }
-  </style>
+  @media (max-width: 34rem) {
+    .top svg { aspect-ratio: 16 / 9; }
+    .year .name-col { width: 6.4rem; }
+    .year tbody th { padding-left: 0.6rem; font-size: 0.82rem; }
+    .year tbody th small { font-size: 0.72rem; }
+    .year thead th { font-size: 0.72rem; }
+    .year td.on::before, .year tr.shop td.open::before { width: 0.6rem; height: 0.6rem; }
+    .year tr.out td.water::before { box-shadow: 0 0 0 1.5px var(--surface), 0 0 0 3px var(--spring); }
+  }
+</style>
 </head>
 <body>
+<div class="page">
 
-  <header class="hero">
-    <svg class="contours" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <path pathLength="1" d="M500,405 C500,352 558,320 630,323 S760,362 757,409 S688,490 623,487 S500,456 500,405Z"/>
-      <path pathLength="1" d="M410,400 C410,316 502,265 615,270 S820,332 816,407 S707,535 605,531 S410,481 410,400Z"/>
-      <path pathLength="1" d="M310,395 C310,277 440,205 600,213 S890,300 884,404 S730,585 585,579 S310,509 310,395Z"/>
-      <path pathLength="1" d="M205,400 C205,245 378,150 590,160 S975,275 967,412 S763,650 571,642 S205,550 205,400Z"/>
-      <path pathLength="1" d="M85,395 C85,197 305,75 575,88 S1065,235 1055,411 S795,715 550,705 S85,587 85,395Z"/>
-      <path pathLength="1" d="M-50,400 C-50,152 224,0 560,16 S1170,200 1158,420 S834,800 529,788 S-50,640 -50,400Z"/>
-      <path pathLength="1" d="M-190,400 C-190,96 143,-90 550,-70 S1290,155 1275,424 S883,890 513,875 S-190,694 -190,400Z"/>
-      <ellipse class="pond" cx="640" cy="408" rx="58" ry="34"/>
+  <header class="top">
+    <svg viewBox="0 0 800 240" preserveAspectRatio="xMidYMid slice" role="img" aria-label="숲속 옹달샘과 그 옆에 펼쳐진 책">
+      <rect width="800" height="240" fill="#dcebe2"/>
+      <ellipse cx="120" cy="10" rx="170" ry="70" fill="#bdd6c5"/>
+      <ellipse cx="420" cy="-6" rx="230" ry="70" fill="#c6dccd"/>
+      <ellipse cx="720" cy="14" rx="170" ry="72" fill="#bdd6c5"/>
+      <g fill="#9fbdab">
+        <rect x="60" y="0" width="16" height="190"/><rect x="150" y="0" width="10" height="176"/>
+        <rect x="236" y="0" width="20" height="186"/><rect x="330" y="0" width="9" height="160"/>
+        <rect x="470" y="0" width="12" height="162"/><rect x="556" y="0" width="22" height="184"/>
+        <rect x="650" y="0" width="10" height="176"/><rect x="726" y="0" width="17" height="192"/>
+      </g>
+      <ellipse cx="400" cy="262" rx="560" ry="96" fill="#82b192"/>
+      <ellipse cx="350" cy="196" rx="140" ry="38" fill="#5f9478"/>
+      <ellipse cx="350" cy="194" rx="126" ry="31" fill="#2f9c8d"/>
+      <ellipse cx="350" cy="194" rx="86" ry="20" fill="none" stroke="#bfe8de" stroke-width="2.5"/>
+      <ellipse cx="350" cy="194" rx="44" ry="10" fill="none" stroke="#bfe8de" stroke-width="2.5"/>
+      <circle cx="350" cy="194" r="4" fill="#e9fbf6"/>
+      <g fill="#8b9a91">
+        <ellipse cx="226" cy="208" rx="20" ry="10"/><ellipse cx="256" cy="222" rx="13" ry="7"/>
+        <ellipse cx="292" cy="164" rx="12" ry="6"/>
+      </g>
+      <g stroke="#3c7450" stroke-width="3" stroke-linecap="round" fill="none">
+        <path d="M204 204 q-6 -20 -16 -28"/><path d="M204 204 q2 -22 10 -32"/><path d="M204 204 q12 -14 24 -16"/>
+        <path d="M452 170 q-4 -14 -12 -20"/><path d="M452 170 q4 -16 12 -22"/>
+      </g>
+      <g transform="translate(-84 0)">
+        <polygon points="576,188 636,198 696,188 696,214 636,224 576,214" fill="#17463f"/>
+        <polygon points="582,184 634,194 634,218 582,208" fill="#ffffff"/>
+        <polygon points="690,184 638,194 638,218 690,208" fill="#ffffff"/>
+        <g stroke="#c5d0cb" stroke-width="2.5" stroke-linecap="round">
+          <line x1="590" y1="194" x2="626" y2="201"/><line x1="590" y1="208" x2="626" y2="215"/>
+          <line x1="646" y1="201" x2="682" y2="194"/><line x1="646" y1="215" x2="682" y2="208"/>
+        </g>
+        <line x1="590" y1="201" x2="626" y2="208" stroke="#f4dc5a" stroke-width="5" stroke-linecap="round"/>
+        <line x1="646" y1="208" x2="682" y2="201" stroke="#f4dc5a" stroke-width="5" stroke-linecap="round"/>
+      </g>
     </svg>
-
-    <p class="hero-lead">
-      수안보 온천에서 1km.<br>
-      숲과 계곡 사이에서 한 박자 쉬어 가는 자연주의 농장입니다.
-      <span>충청북도 충주시 수안보면</span>
-    </p>
-    <h1>슬로우파머</h1>
+    <div class="top-text">
+      <p class="doc-kind">2027 연간 사업계획 보고서</p>
+      <h1>옹달샘의 <span class="mark">2027년</span> 문화사업</h1>
+      <p class="lede">참여 프로그램 다섯, 야외 행사 둘, 상설 공간 하나. 1월 독서모임으로 시작해 12월 북토크로 마무리하는 한 해 계획입니다.</p>
+    </div>
   </header>
 
-  <main>
+  <section aria-labelledby="year-h">
+    <h2 id="year-h">한 해를 한 장으로</h2>
+    <ul class="legend">
+      <li><span class="dot"></span>참여 프로그램</li>
+      <li><span class="dot out"></span>야외 행사</li>
+      <li><span class="dot water"></span>워터밤 함께 운영</li>
+      <li><span class="dot shop"></span>상설 운영</li>
+    </ul>
+    <div class="year-wrap">
+      <table class="year">
+        <colgroup><col class="name-col"><col span="12"></colgroup>
+        <thead>
+          <tr><th scope="col"><span class="sr">사업</span></th><th scope="col">1월</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th><th scope="col">6</th><th scope="col">7</th><th scope="col">8</th><th scope="col">9</th><th scope="col">10</th><th scope="col">11</th><th scope="col">12</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">밑줄스테이<small>연 6회</small></th>
+            <td class="on"><span class="sr">진행</span></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td class="on"><span class="sr">진행</span></td><td></td>
+          </tr>
+          <tr>
+            <th scope="row">별의 별책스테이<small>연 2회</small></th>
+            <td></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th scope="row">숲속책방 독서모임<small>월 1회</small></th>
+            <td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td>
+          </tr>
+          <tr>
+            <th scope="row">리딩파티 북모닝<small>연 3회</small></th>
+            <td></td><td></td><td></td><td></td><td class="on"><span class="sr">진행</span></td><td class="on"><span class="sr">진행</span></td><td></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <th scope="row">북토크<small>연 5회</small></th>
+            <td></td><td class="on"><span class="sr">진행</span></td><td></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td class="on"><span class="sr">진행</span></td>
+          </tr>
+          <tr class="out">
+            <th scope="row">옹달샘 맥주파티<small>연 4회</small></th>
+            <td></td><td></td><td></td><td></td><td></td><td class="on"><span class="sr">진행</span></td><td class="on water"><span class="sr">진행, 워터밤 함께</span></td><td class="on water"><span class="sr">진행, 워터밤 함께</span></td><td class="on"><span class="sr">진행</span></td><td></td><td></td><td></td>
+          </tr>
+          <tr class="out">
+            <th scope="row">북트렁크 2회차<small>1회</small></th>
+            <td></td><td></td><td></td><td class="on"><span class="sr">진행</span></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+          <tr class="shop">
+            <th scope="row">가드닝샵<small>3월 오픈 후 상설</small></th>
+            <td></td><td></td><td class="open"><span class="sr">오픈</span></td><td class="on"><span class="sr">운영</span></td><td class="on"><span class="sr">운영</span></td><td class="on"><span class="sr">운영</span></td><td class="on"><span class="sr">운영</span></td><td class="on"><span class="sr">운영</span></td><td class="on"><span class="sr">운영</span></td><td class="on"><span class="sr">운영</span></td><td class="on"><span class="sr">운영</span></td><td class="on"><span class="sr">운영</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-    <section>
-      <p class="intro">
-        슬로우파머는 충주 수안보 산자락에 있는 임산물 농장입니다.
-        산나물과 꽃, 허브를 기르고, 방문객은 그 재료로 직접 차를 만들고 숲을 걷습니다.
-        농장이 스스로 내세우는 이름은 '순수 자연주의'입니다.
-      </p>
-    </section>
+  <section aria-labelledby="prog-h">
+    <h2 id="prog-h">사업별 내용</h2>
+    <div class="programs">
 
-    <section>
-      <h2>한눈에 보기</h2>
-      <dl class="facts">
-        <div>
-          <dt>위치</dt>
-          <dd>충북 충주시 수안보면 탑골1길 178
-            <small>수안보 온천에서 약 1km</small></dd>
+      <article class="program">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="밑줄 친 책이 파도 위에 떠 있는 그림">
+          <rect width="320" height="200" fill="#e0f1ed"/>
+          <polygon points="62,52 160,64 258,52 258,146 160,158 62,146" fill="#17463f"/>
+          <polygon points="70,46 158,58 158,150 70,138" fill="#ffffff"/>
+          <polygon points="250,46 162,58 162,150 250,138" fill="#ffffff"/>
+          <g stroke="#c5d0cb" stroke-width="3" stroke-linecap="round">
+            <line x1="82" y1="66" x2="146" y2="75"/><line x1="82" y1="96" x2="146" y2="105"/><line x1="82" y1="111" x2="130" y2="118"/>
+            <line x1="174" y1="75" x2="238" y2="66"/><line x1="174" y1="90" x2="238" y2="81"/><line x1="174" y1="120" x2="222" y2="113"/>
+          </g>
+          <line x1="82" y1="81" x2="146" y2="90" stroke="#f4dc5a" stroke-width="8" stroke-linecap="round"/>
+          <line x1="174" y1="105" x2="238" y2="96" stroke="#f4dc5a" stroke-width="8" stroke-linecap="round"/>
+          <path d="M-10 166 q20 -13 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V210 H-10 Z" fill="#7fc8bc"/>
+          <path d="M-30 180 q20 -13 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V210 H-30 Z" fill="#2f9c8d"/>
+          <g transform="translate(270 70) rotate(28)">
+            <rect width="11" height="54" fill="#f2b84b"/><rect width="11" height="9" fill="#e58a7a"/>
+            <polygon points="0,54 11,54 5.5,68" fill="#17302b"/>
+          </g>
+        </svg>
+        <div class="program-body">
+          <p class="kind"><span class="dot"></span>참여 프로그램</p>
+          <h3>밑줄스테이 <span class="mark">〈바다쓰기〉</span><span class="draft">가칭</span></h3>
+          <p>각자 밑줄 친 책을 가져와 서로 교환하고, 받은 책의 문장을 필사해 나눕니다. 참가자들의 필사물은 추후 책방이나 카페 안에 모아 게시할 계획입니다.</p>
+          <dl class="when"><div><dt>시기</dt><dd>홀수 달 (1·3·5·7·9·11월)</dd></div><div><dt>횟수</dt><dd>연 6회</dd></div></dl>
         </div>
-        <div>
-          <dt>넓이</dt>
-          <dd>약 33만㎡ (약 10만 평)</dd>
+      </article>
+
+      <article class="program">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="밤하늘 아래 언덕에 놓인 책에서 별이 떠오르는 그림">
+          <rect width="320" height="200" fill="#1a2348"/>
+          <g fill="#ffffff">
+            <circle cx="24" cy="30" r="1.8"/><circle cx="58" cy="62" r="1.4"/><circle cx="92" cy="22" r="2.2"/><circle cx="126" cy="50" r="1.4"/>
+            <circle cx="200" cy="26" r="1.8"/><circle cx="222" cy="78" r="1.4"/><circle cx="292" cy="96" r="2"/><circle cx="302" cy="24" r="1.4"/>
+            <circle cx="40" cy="98" r="1.6"/><circle cx="268" cy="126" r="1.4"/><circle cx="110" cy="92" r="1.2"/>
+          </g>
+          <g fill="#f6dd6b">
+            <polygon points="70,34 72.5,41.5 80,44 72.5,46.5 70,54 67.5,46.5 60,44 67.5,41.5"/>
+            <polygon points="236,104 238,110 244,112 238,114 236,120 234,114 228,112 234,110"/>
+          </g>
+          <circle cx="256" cy="50" r="21" fill="#f6e8a8"/><circle cx="265" cy="43" r="19" fill="#1a2348"/>
+          <ellipse cx="90" cy="226" rx="230" ry="72" fill="#0f1733"/>
+          <ellipse cx="290" cy="236" rx="170" ry="62" fill="#131c3d"/>
+          <g fill="#0a1026">
+            <polygon points="22,162 38,112 54,162"/><polygon points="48,166 60,128 72,166"/>
+            <polygon points="268,180 282,136 296,180"/>
+          </g>
+          <polygon points="128,150 160,157 160,178 128,171" fill="#f3f0e4"/>
+          <polygon points="192,150 160,157 160,178 192,171" fill="#f3f0e4"/>
+          <g fill="#f6dd6b">
+            <circle cx="160" cy="138" r="4.2"/><circle cx="167" cy="120" r="3.6"/><circle cx="157" cy="103" r="3"/>
+            <circle cx="166" cy="87" r="2.5"/><circle cx="159" cy="72" r="2"/><circle cx="164" cy="59" r="1.6"/>
+          </g>
+        </svg>
+        <div class="program-body">
+          <p class="kind"><span class="dot"></span>참여 프로그램</p>
+          <h3>별의 별책스테이 <span class="mark">〈별볼일 있는 밤〉</span></h3>
+          <p>별 관련 도서와 연계해 별을 보는 밤 프로그램입니다.</p>
+          <dl class="when"><div><dt>시기</dt><dd>3·10월</dd></div><div><dt>횟수</dt><dd>연 2회</dd></div></dl>
         </div>
-        <div>
-          <dt>기르는 것</dt>
-          <dd>산나물, 꽃, 허브
-            <small>임산물은 토양 검사를 거쳐 무농약·무화학비료 인증을 받았습니다 (2021년 보도 기준)</small></dd>
+      </article>
+
+      <article class="program">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="숲속 작은 책방과 그 앞에 둥글게 놓인 의자 그림">
+          <rect width="320" height="200" fill="#e4efd8"/>
+          <ellipse cx="160" cy="214" rx="240" ry="58" fill="#a9c98f"/>
+          <g fill="#7a5a3c"><rect x="36" y="98" width="8" height="66"/><rect x="264" y="92" width="9" height="72"/><rect x="296" y="110" width="6" height="52"/></g>
+          <circle cx="40" cy="84" r="30" fill="#4f8a5b"/><circle cx="268" cy="74" r="34" fill="#3c7450"/><circle cx="300" cy="102" r="20" fill="#5a9968"/>
+          <polygon points="62,164 82,96 102,164" fill="#2f6b50"/><polygon points="222,164 240,106 258,164" fill="#2f6b50"/>
+          <rect x="110" y="88" width="100" height="74" fill="#d9a066"/>
+          <polygon points="96,92 160,46 224,92" fill="#17463f"/>
+          <rect x="149" y="120" width="22" height="42" fill="#7a4a2a"/><circle cx="166" cy="142" r="1.8" fill="#f6dd6b"/>
+          <rect x="120" y="106" width="22" height="22" fill="#fff5d6"/><rect x="178" y="106" width="22" height="22" fill="#fff5d6"/>
+          <rect x="123" y="112" width="4" height="16" fill="#2f9c8d"/><rect x="128" y="110" width="4" height="18" fill="#e0705a"/><rect x="133" y="114" width="4" height="14" fill="#f2b84b"/>
+          <rect x="181" y="110" width="4" height="18" fill="#f2b84b"/><rect x="186" y="113" width="4" height="15" fill="#2f9c8d"/><rect x="191" y="111" width="4" height="17" fill="#6c5ba7"/>
+          <g fill="#8a5d33"><ellipse cx="118" cy="182" rx="11" ry="4.5"/><ellipse cx="146" cy="190" rx="11" ry="4.5"/><ellipse cx="176" cy="190" rx="11" ry="4.5"/><ellipse cx="204" cy="182" rx="11" ry="4.5"/></g>
+          <ellipse cx="161" cy="178" rx="15" ry="5.5" fill="#f3e3c4"/>
+        </svg>
+        <div class="program-body">
+          <p class="kind"><span class="dot"></span>참여 프로그램</p>
+          <h3>숲속책방 독서모임</h3>
+          <p>1월에 시작해 매달 한 번, 일요일에 모입니다. 충주 대상으로 진행합니다.</p>
+          <dl class="when"><div><dt>시기</dt><dd>1월 시작</dd></div><div><dt>횟수</dt><dd>월 1회</dd></div></dl>
         </div>
-        <div>
-          <dt>이용</dt>
-          <dd>사전 예약 필수</dd>
+      </article>
+
+      <article class="program">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="해가 뜨는 아침, 탁자 위 커피잔과 펼친 책 그림">
+          <rect width="320" height="200" fill="#ffe6c7"/>
+          <circle cx="170" cy="118" r="50" fill="#f8b24a"/>
+          <g stroke="#f8b24a" stroke-width="4" stroke-linecap="round">
+            <line x1="170" y1="52" x2="170" y2="36"/><line x1="124" y1="70" x2="112" y2="58"/><line x1="216" y1="70" x2="228" y2="58"/>
+            <line x1="104" y1="112" x2="88" y2="110"/><line x1="236" y1="112" x2="252" y2="110"/>
+          </g>
+          <ellipse cx="60" cy="176" rx="170" ry="52" fill="#86b58e"/><ellipse cx="270" cy="184" rx="180" ry="52" fill="#6fa37c"/>
+          <rect y="158" width="320" height="42" fill="#c98f5a"/><rect y="158" width="320" height="5" fill="#b27a47"/>
+          <path d="M92 124 q-6 -9 0 -18 t0 -16" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M108 124 q-6 -9 0 -18 t0 -16" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="122" cy="146" r="9" fill="none" stroke="#ffffff" stroke-width="5"/>
+          <rect x="82" y="130" width="36" height="32" rx="5" fill="#ffffff"/>
+          <ellipse cx="100" cy="133" rx="15" ry="3.5" fill="#6b4226"/>
+          <polygon points="170,148 214,155 214,170 170,163" fill="#ffffff"/><polygon points="258,148 214,155 214,170 258,163" fill="#ffffff"/>
+          <line x1="178" y1="155" x2="206" y2="160" stroke="#f4dc5a" stroke-width="4" stroke-linecap="round"/>
+          <line x1="222" y1="160" x2="250" y2="155" stroke="#c5d0cb" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="program-body">
+          <p class="kind"><span class="dot"></span>참여 프로그램</p>
+          <h3>리딩파티 <span class="mark">〈북모닝〉</span></h3>
+          <p>아침에 여는 리딩파티입니다.</p>
+          <dl class="when"><div><dt>시기</dt><dd>5·6·9월</dd></div><div><dt>횟수</dt><dd>연 3회</dd></div></dl>
         </div>
-        <div>
-          <dt>참가비</dt>
-          <dd>1인 4만 원 안팎
-            <small>프로그램마다 다릅니다 (2025년 10월 농촌진흥청 웹진 기준)</small></dd>
+      </article>
+
+      <article class="program">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="마이크와 말풍선, 쌓인 책 그림">
+          <rect width="320" height="200" fill="#ebe3f1"/>
+          <rect y="162" width="320" height="38" fill="#d6c9e4"/>
+          <rect x="146" y="34" width="132" height="70" rx="16" fill="#ffffff"/>
+          <polygon points="166,100 152,124 190,100" fill="#ffffff"/>
+          <g stroke="#cfc4de" stroke-width="4" stroke-linecap="round">
+            <line x1="166" y1="54" x2="258" y2="54"/><line x1="166" y1="84" x2="226" y2="84"/>
+          </g>
+          <line x1="166" y1="69" x2="246" y2="69" stroke="#f4dc5a" stroke-width="9" stroke-linecap="round"/>
+          <line x1="104" y1="84" x2="104" y2="164" stroke="#2c2540" stroke-width="5"/>
+          <ellipse cx="104" cy="166" rx="22" ry="5" fill="#2c2540"/>
+          <rect x="94" y="48" width="20" height="34" rx="10" fill="#2c2540"/>
+          <g stroke="#6c5ba7" stroke-width="2"><line x1="96" y1="58" x2="112" y2="58"/><line x1="96" y1="64" x2="112" y2="64"/><line x1="96" y1="70" x2="112" y2="70"/></g>
+          <rect x="36" y="128" width="40" height="7" rx="2" fill="#7a5a3c"/>
+          <g stroke="#7a5a3c" stroke-width="4" stroke-linecap="round"><line x1="42" y1="135" x2="38" y2="166"/><line x1="70" y1="135" x2="74" y2="166"/></g>
+          <rect x="208" y="150" width="70" height="12" rx="2" fill="#2f9c8d"/><rect x="214" y="138" width="60" height="12" rx="2" fill="#f2b84b"/><rect x="204" y="126" width="68" height="12" rx="2" fill="#e0705a"/>
+          <rect x="212" y="129" width="4" height="6" fill="#ffffff"/><rect x="222" y="141" width="4" height="6" fill="#ffffff"/><rect x="216" y="153" width="4" height="6" fill="#ffffff"/>
+        </svg>
+        <div class="program-body">
+          <p class="kind"><span class="dot"></span>참여 프로그램</p>
+          <h3>북토크</h3>
+          <p>연 5회 계획하고 있으며, 작가는 아직 정해지지 않았습니다.</p>
+          <dl class="when"><div><dt>시기</dt><dd>2·5·8·10·12월</dd></div><div><dt>횟수</dt><dd>연 5회</dd></div></dl>
         </div>
-        <div>
-          <dt>인증</dt>
-          <dd>우수 치유농업시설
-            <small>한국농업기술진흥원 제1회 인증제, 2026년</small></dd>
+      </article>
+
+      <article class="program">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="푸른 산 앞에서 맥주잔 두 개가 부딪히는 저녁 그림">
+          <rect width="320" height="200" fill="#1f4a43"/>
+          <polygon points="-20,156 64,74 148,156" fill="#2f6e60"/><polygon points="84,156 184,56 284,156" fill="#27594f"/><polygon points="196,156 276,88 356,156" fill="#2f6e60"/>
+          <rect y="154" width="320" height="46" fill="#173832"/>
+          <path d="M0 26 Q80 56 160 30 T320 26" fill="none" stroke="#0e2622" stroke-width="2"/>
+          <g fill="#f6dd6b"><circle cx="40" cy="43" r="5"/><circle cx="80" cy="48" r="5"/><circle cx="120" cy="45" r="5"/><circle cx="160" cy="36" r="5"/><circle cx="200" cy="26" r="5"/><circle cx="240" cy="22" r="5"/><circle cx="280" cy="24" r="5"/></g>
+          <g transform="rotate(-9 130 126)">
+            <rect x="94" y="110" width="20" height="34" rx="10" fill="none" stroke="#fbe9bd" stroke-width="6"/>
+            <rect x="108" y="96" width="44" height="62" rx="6" fill="#f2b84b"/>
+            <rect x="116" y="110" width="5" height="38" rx="2.5" fill="#fbdc8d"/><rect x="127" y="110" width="5" height="38" rx="2.5" fill="#fbdc8d"/><rect x="138" y="110" width="5" height="38" rx="2.5" fill="#fbdc8d"/>
+            <g fill="#ffffff"><circle cx="115" cy="96" r="10"/><circle cx="130" cy="91" r="12"/><circle cx="146" cy="96" r="10"/><rect x="108" y="94" width="44" height="10"/></g>
+          </g>
+          <g transform="rotate(9 190 126)">
+            <rect x="206" y="110" width="20" height="34" rx="10" fill="none" stroke="#fbe9bd" stroke-width="6"/>
+            <rect x="168" y="96" width="44" height="62" rx="6" fill="#f2b84b"/>
+            <rect x="177" y="110" width="5" height="38" rx="2.5" fill="#fbdc8d"/><rect x="188" y="110" width="5" height="38" rx="2.5" fill="#fbdc8d"/><rect x="199" y="110" width="5" height="38" rx="2.5" fill="#fbdc8d"/>
+            <g fill="#ffffff"><circle cx="174" cy="96" r="10"/><circle cx="190" cy="91" r="12"/><circle cx="205" cy="96" r="10"/><rect x="168" y="94" width="44" height="10"/></g>
+          </g>
+          <g stroke="#f6dd6b" stroke-width="3.5" stroke-linecap="round"><line x1="160" y1="72" x2="160" y2="58"/><line x1="148" y1="76" x2="140" y2="65"/><line x1="172" y1="76" x2="180" y2="65"/></g>
+        </svg>
+        <div class="program-body">
+          <p class="kind"><span class="dot out"></span>야외 행사</p>
+          <h3>옹달샘 맥주파티 <span class="mark">〈청산유주〉</span><span class="draft">가칭</span></h3>
+          <p>숲속에서 여는 맥주파티입니다. 마지막 주 토요일 저녁을 생각하고 있으며 날짜는 협의가 필요합니다. 7월과 8월에는 워터밤을 함께 운영합니다.</p>
+          <dl class="when"><div><dt>시기</dt><dd>6·7·8·9월</dd></div><div><dt>횟수</dt><dd>연 4회</dd></div></dl>
         </div>
-      </dl>
-    </section>
+      </article>
 
-    <section>
-      <h2>농장에서 하는 체험</h2>
+      <article class="program">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="트렁크에 책을 가득 실은 차와 텐트, 장터 깃발 그림">
+          <rect width="320" height="200" fill="#dceaf4"/>
+          <rect y="152" width="320" height="48" fill="#9cc58c"/>
+          <path d="M10 26 Q160 54 310 22" fill="none" stroke="#53665f" stroke-width="2"/>
+          <polygon points="62,37 78,39 70,54" fill="#e0705a"/><polygon points="122,41 138,42 130,57" fill="#f2b84b"/><polygon points="182,41 198,40 190,55" fill="#2f9c8d"/><polygon points="242,35 258,33 250,49" fill="#6c5ba7"/>
+          <polygon points="216,154 260,82 304,154" fill="#f2b84b"/><polygon points="247,154 260,112 273,154" fill="#17302b"/>
+          <polygon points="60,54 196,54 184,98 72,98" fill="#237368"/>
+          <polygon points="72,60 184,60 176,92 80,92" fill="#bfe0ea"/>
+          <rect x="62" y="96" width="132" height="58" rx="10" fill="#2f9c8d"/>
+          <rect x="78" y="104" width="100" height="36" rx="4" fill="#17302b"/>
+          <rect x="84" y="112" width="9" height="28" fill="#e0705a"/><rect x="94" y="108" width="8" height="32" fill="#f2b84b"/><rect x="103" y="114" width="10" height="26" fill="#ffffff"/>
+          <rect x="114" y="110" width="8" height="30" fill="#6c5ba7"/><rect x="123" y="116" width="9" height="24" fill="#7fc8bc"/><rect x="133" y="109" width="8" height="31" fill="#e0705a"/>
+          <rect x="142" y="113" width="10" height="27" fill="#f2b84b"/><rect x="153" y="111" width="8" height="29" fill="#ffffff"/><rect x="162" y="115" width="9" height="25" fill="#6c5ba7"/>
+          <rect x="58" y="142" width="140" height="11" rx="5.5" fill="#17463f"/>
+          <rect x="66" y="126" width="8" height="12" rx="2" fill="#e0705a"/><rect x="182" y="126" width="8" height="12" rx="2" fill="#e0705a"/>
+          <rect x="72" y="150" width="24" height="16" rx="5" fill="#17302b"/><rect x="160" y="150" width="24" height="16" rx="5" fill="#17302b"/>
+        </svg>
+        <div class="program-body">
+          <p class="kind"><span class="dot out"></span>야외 행사</p>
+          <h3><span class="mark">〈북트렁크〉</span> 2회차</h3>
+          <p>프리마켓, 캠핑, 노지독서를 결합한 행사입니다.</p>
+          <dl class="when"><div><dt>시기</dt><dd>4월</dd></div><div><dt>횟수</dt><dd>1회</dd></div></dl>
+        </div>
+      </article>
 
-      <div class="program">
-        <h3>허브 꽃차 만들기</h3>
-        <p>농장에서 기른 꽃과 허브로 꽃차 티백을 만들고, 그 자리에서 우려 마십니다. 농장의 대표 프로그램입니다.</p>
-      </div>
+      <article class="program">
+        <svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="선반 위 토분과 새싹, 물뿌리개, 씨앗 봉투 그림">
+          <rect width="320" height="200" fill="#f0efd6"/>
+          <rect y="150" width="320" height="50" fill="#e3dfba"/>
+          <rect y="146" width="320" height="9" fill="#b98556"/>
+          <line x1="62" y1="104" x2="62" y2="62" stroke="#3c7450" stroke-width="4" stroke-linecap="round"/>
+          <ellipse cx="48" cy="78" rx="15" ry="7" transform="rotate(28 48 78)" fill="#5aa469"/><ellipse cx="77" cy="68" rx="15" ry="7" transform="rotate(-28 77 68)" fill="#5aa469"/>
+          <ellipse cx="62" cy="58" rx="7" ry="11" fill="#6fb77c"/>
+          <polygon points="38,112 86,112 78,146 46,146" fill="#c9704a"/><rect x="32" y="104" width="60" height="11" rx="2.5" fill="#b85f3b"/>
+          <line x1="136" y1="122" x2="136" y2="102" stroke="#3c7450" stroke-width="3.5" stroke-linecap="round"/>
+          <ellipse cx="127" cy="102" rx="10" ry="5" transform="rotate(25 127 102)" fill="#6fb77c"/><ellipse cx="145" cy="102" rx="10" ry="5" transform="rotate(-25 145 102)" fill="#6fb77c"/>
+          <polygon points="118,128 154,128 148,146 124,146" fill="#c9704a"/><rect x="114" y="121" width="44" height="9" rx="2.5" fill="#b85f3b"/>
+          <path d="M190 124 q18 -34 40 0" fill="none" stroke="#237368" stroke-width="6" stroke-linecap="round"/>
+          <polygon points="238,126 268,98 274,104 244,138" fill="#2f9c8d"/>
+          <ellipse cx="272" cy="100" rx="11" ry="6" transform="rotate(42 272 100)" fill="#237368"/>
+          <rect x="184" y="112" width="56" height="34" rx="6" fill="#2f9c8d"/>
+          <g fill="#7fc8bc"><circle cx="286" cy="112" r="2.5"/><circle cx="292" cy="124" r="2.5"/><circle cx="282" cy="128" r="2.5"/><circle cx="296" cy="138" r="2.5"/></g>
+          <g>
+            <rect x="34" y="164" width="24" height="30" rx="2" fill="#ffffff"/><circle cx="46" cy="176" r="6" fill="#e0705a"/>
+            <rect x="66" y="164" width="24" height="30" rx="2" fill="#ffffff"/><circle cx="78" cy="176" r="6" fill="#f2b84b"/>
+            <rect x="98" y="164" width="24" height="30" rx="2" fill="#ffffff"/><circle cx="110" cy="176" r="6" fill="#5aa469"/>
+            <rect x="130" y="164" width="24" height="30" rx="2" fill="#ffffff"/><circle cx="142" cy="176" r="6" fill="#6c5ba7"/>
+          </g>
+          <g transform="translate(206 162) rotate(-18)">
+            <rect x="0" y="6" width="34" height="8" rx="4" fill="#7a5a3c"/><polygon points="34,2 62,6 70,10 62,14 34,18" fill="#8b9a91"/>
+          </g>
+        </svg>
+        <div class="program-body">
+          <p class="kind"><span class="dot shop"></span>상설 운영</p>
+          <h3>가드닝샵 <span class="mark">〈옹달샘 풀장〉</span><span class="draft">가칭</span></h3>
+          <p>정원용품, 토분, 텃밭용품, 씨앗을 판매하는 매장입니다.</p>
+          <dl class="when"><div><dt>시기</dt><dd>3월 1일 오픈 목표</dd></div><div><dt>운영</dt><dd>상설</dd></div></dl>
+        </div>
+      </article>
 
-      <div class="program">
-        <h3>숲속 트레킹</h3>
-        <p>농장의 트레킹 코스를 따라 숲을 천천히 걷습니다. 계곡 옆에는 명상 공간이 있습니다.</p>
-      </div>
+    </div>
+  </section>
 
-      <div class="program">
-        <h3>산나물 채취와 음식 만들기</h3>
-        <p>산나물을 직접 따서 페스토나 장아찌로 만들어 봅니다.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>농장 안 공간</h2>
-      <ul class="places">
-        <li>계곡</li>
-        <li>연못</li>
-        <li>실내 온실</li>
-        <li>체험장</li>
-        <li>야외 명상장</li>
-        <li>야외 행사장 '탑 시크릿 가든'</li>
-      </ul>
-      <p>산 가운데 자리한 연못은 농장 대표가 "농장의 심장"이라고 소개하는 곳입니다.</p>
-    </section>
-
-    <section>
-      <h2>걸어온 길</h2>
-      <ol class="history">
-        <li><time datetime="2018">2018</time><span>농업회사법인 슬로우파머 설립</span></li>
-        <li><time datetime="2020">2020</time><span>가을, 숲속에서 팜파티 개최</span></li>
-        <li><time datetime="2024">2024</time><span>6월 '여행가는 달' 테마여행 코스에 포함</span></li>
-        <li><time datetime="2026">2026</time><span>2월 우수 치유농업시설 인증.<br>가을, 충북 글로벌 웰니스 팸투어에서 7개국 외국인 20명이 꽃차 체험에 참여</span></li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>가는 길</h2>
-      <address>충청북도 충주시 수안보면 탑골1길 178</address>
-      <p>수안보 온천에서 약 1km 떨어져 있습니다.</p>
-      <a class="map-link" href="https://map.kakao.com/link/search/충북%20충주시%20수안보면%20탑골1길%20178" target="_blank" rel="noopener">카카오맵에서 위치 보기</a>
-    </section>
-
-    <section>
-      <h2>방문 전에</h2>
-      <div class="notice">
-        <p>모든 프로그램은 사전 예약이 필요합니다.</p>
-        <p>계절에 따라 프로그램과 참가비가 달라질 수 있으니, 방문 전에 농장에 확인하세요.</p>
-      </div>
-    </section>
-
-  </main>
+  <section aria-labelledby="check-h">
+    <h2 id="check-h">확인사항</h2>
+    <p class="section-note">실행 전에 정해야 할 다섯 가지입니다.</p>
+    <ul class="checks">
+      <li><div><strong>북토크 작가 섭외</strong><span>5회 모두 미정입니다.</span></div></li>
+      <li><div><strong>맥주파티 날짜</strong><span>날짜 확정과 협의가 필요합니다.</span></div></li>
+      <li><div><strong>워터밤·주류 제공</strong><span>장소의 취식·주류 규정, 임시 주류 판매 허가 사항, 외부음식 여부, 물놀이 방식을 협의해야 합니다.</span></div></li>
+      <li><div><strong>3월 업무 집중</strong><span>가드닝샵 오픈, 밑줄스테이, 별멍스테이가 몰려 있어 인력 배분을 점검합니다.</span></div></li>
+      <li><div><strong>숲속책방 독서모임</strong><span>네이밍, 대상 도서군, 운영 형태를 정해야 합니다. 일요일 오전을 고려하고 있습니다.</span></div></li>
+    </ul>
+  </section>
 
   <footer>
-    <div class="inner">
-      <h2>출처</h2>
-      <ul>
-        <li><a href="https://rda.go.kr/webzine/2025/10/sub_43.html">농촌진흥청 그린매거진, 2025년 10월호</a></li>
-        <li><a href="https://www.nongsaro.go.kr/portal/ps/psb/psby/vodPlay.ps?mvpNo=2092">농사로, 치유농업 운영 사례 영상</a></li>
-        <li><a href="https://www.ccdailynews.com/news/articleView.html?idxno=2396268">충청일보, 충주 4개 농장 우수 치유농업시설 인증</a></li>
-        <li><a href="https://ccdn.co.kr/news/articleView.html?idxno=1102346">충청매일, 충북 글로벌 웰니스 팸투어</a></li>
-        <li><a href="http://www.bizhankook.com/bk/article/23181">비즈한국, 충주 웰니스 여행</a></li>
-        <li><a href="https://v.daum.net/v/20240521113341648?f=p">헤럴드경제, 6월 여행가는 달 테마여행</a></li>
-      </ul>
-      <p>공개된 보도와 기관 자료를 바탕으로 2026년 10월에 정리한 소개 페이지입니다. 최신 운영 정보는 농장에 확인하세요.</p>
-    </div>
+    <p>2027 연간 사업계획 보고서의 내용을 옮긴 페이지입니다. 그림은 각 사업의 내용에 맞춰 새로 그린 것으로, 실제 현장 사진이 아닙니다.</p>
   </footer>
 
+</div>
 </body>
 </html>
