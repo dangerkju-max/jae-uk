@@ -1,10 +1,361 @@
-   <!doctype html>
-   <html lang="ko">
-   <head>
-     <meta charset="utf-8">
-     <title>관광 대시보드 연습</title>
-   </head>
-   <body>
-     <h1>이효정</h1>
-   </body>
-   </html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>슬로우파머 소개 | 충주 수안보 자연주의 농장</title>
+  <meta name="description" content="충주 수안보 온천에서 1km, 숲과 계곡 사이의 자연주의 농장 슬로우파머를 소개합니다. 꽃차 만들기, 숲속 트레킹, 산나물 체험.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pine: #1f2a24;      /* 깊은 숲 */
+      --moss: #4f6b4a;      /* 이끼 */
+      --mist: #eef2ea;      /* 아침 안개 */
+      --paper: #fbfcf8;     /* 종이 */
+      --tea: #b9832a;       /* 우린 꽃차 */
+      --stream: #7fa3a0;    /* 계곡물 */
+      --ink: #26302a;
+      --ink-soft: #55625a;
+      --line: #d5ddd0;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--mist);
+      color: var(--ink);
+      font-family: "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      word-break: keep-all;
+    }
+
+    h1, h2, h3 {
+      font-family: "Gowun Batang", "Nanum Myeongjo", serif;
+      font-weight: 700;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    p { margin: 0 0 1em; }
+
+    a { color: var(--moss); text-underline-offset: 0.2em; }
+    a:focus-visible, .map-link:focus-visible {
+      outline: 3px solid var(--tea);
+      outline-offset: 3px;
+    }
+
+    /* ── 첫 화면 ── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      background: var(--pine);
+      color: var(--paper);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 1.5rem;
+      padding: clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .contours {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .contours path {
+      fill: none;
+      stroke: var(--moss);
+      stroke-width: 1.5;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: draw 5s ease-out forwards;
+    }
+    .contours path:nth-of-type(2) { animation-delay: 0.3s; }
+    .contours path:nth-of-type(3) { animation-delay: 0.6s; }
+    .contours path:nth-of-type(4) { animation-delay: 0.9s; }
+    .contours path:nth-of-type(5) { animation-delay: 1.2s; }
+    .contours path:nth-of-type(6) { animation-delay: 1.5s; }
+    .contours path:nth-of-type(7) { animation-delay: 1.8s; }
+    .contours .pond { fill: var(--stream); opacity: 0.85; }
+
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+
+    .hero-lead {
+      position: relative;
+      max-width: 22em;
+      font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+      line-height: 1.8;
+      margin: 0;
+    }
+    .hero-lead span { display: block; color: #c9d6c4; font-size: 0.85em; margin-top: 0.8em; }
+
+    .hero h1 {
+      position: relative;
+      writing-mode: vertical-rl;
+      font-size: clamp(3.4rem, min(13vw, 11vh), 8.5rem);
+      letter-spacing: 0.14em;
+      line-height: 1;
+      align-self: start;
+      justify-self: end;
+    }
+
+    /* ── 본문 ── */
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2rem) 2rem;
+    }
+
+    section { margin-bottom: clamp(3.5rem, 9vw, 6rem); }
+
+    h2 {
+      font-size: clamp(1.5rem, 3.6vw, 2rem);
+      margin-bottom: 1.2rem;
+      color: var(--pine);
+    }
+
+    .intro { font-size: 1.15rem; }
+
+    /* 한눈에 보기 */
+    .facts { margin: 0; border-top: 1px solid var(--line); }
+    .facts div {
+      display: grid;
+      grid-template-columns: 6.5em 1fr;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .facts dt { color: var(--moss); font-family: "Gowun Batang", serif; font-weight: 700; }
+    .facts dd { margin: 0; }
+    .facts small { display: block; color: var(--ink-soft); font-size: 0.85em; }
+
+    /* 체험 */
+    .program { padding: 1.4rem 0 0.6rem; border-top: 1px solid var(--line); }
+    .program:last-child { border-bottom: 1px solid var(--line); }
+    .program h3 { font-size: 1.25rem; margin-bottom: 0.4rem; color: var(--tea); }
+
+    /* 농장 안 공간 */
+    .places {
+      list-style: none;
+      margin: 0 0 1.4rem;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.6rem;
+    }
+    .places li {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.25rem 1rem;
+    }
+
+    /* 걸어온 길 */
+    .history { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--stream); }
+    .history li {
+      display: grid;
+      grid-template-columns: 4.2em 1fr;
+      gap: 1rem;
+      padding: 0.2rem 0 1.3rem 1.2rem;
+    }
+    .history time {
+      font-family: "Gowun Batang", serif;
+      font-weight: 700;
+      color: var(--pine);
+      font-size: 1.15rem;
+    }
+
+    /* 가는 길 */
+    address { font-style: normal; font-size: 1.15rem; margin-bottom: 0.3rem; }
+    .map-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--moss);
+      color: var(--paper);
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    .map-link:hover { background: var(--pine); }
+
+    .notice {
+      background: var(--paper);
+      border-left: 4px solid var(--tea);
+      padding: 1.2rem 1.4rem;
+    }
+    .notice p:last-child { margin-bottom: 0; }
+
+    /* 출처 */
+    footer {
+      background: var(--pine);
+      color: #c9d6c4;
+      font-size: 0.9rem;
+      padding: clamp(2rem, 6vw, 3.5rem) clamp(1.25rem, 5vw, 2rem);
+    }
+    footer .inner { max-width: 44rem; margin: 0 auto; }
+    footer h2 { color: var(--paper); font-size: 1.15rem; margin-bottom: 0.8rem; }
+    footer ul { margin: 0 0 1.5rem; padding-left: 1.2em; }
+    footer a { color: #dfe8da; }
+    footer p { margin: 0; }
+
+    @media (max-width: 30rem) {
+      .hero { grid-template-columns: 1fr auto; min-height: 88vh; }
+      .facts div { grid-template-columns: 5em 1fr; }
+      .history li { grid-template-columns: 3.6em 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .contours path { animation: none; stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <svg class="contours" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path pathLength="1" d="M500,405 C500,352 558,320 630,323 S760,362 757,409 S688,490 623,487 S500,456 500,405Z"/>
+      <path pathLength="1" d="M410,400 C410,316 502,265 615,270 S820,332 816,407 S707,535 605,531 S410,481 410,400Z"/>
+      <path pathLength="1" d="M310,395 C310,277 440,205 600,213 S890,300 884,404 S730,585 585,579 S310,509 310,395Z"/>
+      <path pathLength="1" d="M205,400 C205,245 378,150 590,160 S975,275 967,412 S763,650 571,642 S205,550 205,400Z"/>
+      <path pathLength="1" d="M85,395 C85,197 305,75 575,88 S1065,235 1055,411 S795,715 550,705 S85,587 85,395Z"/>
+      <path pathLength="1" d="M-50,400 C-50,152 224,0 560,16 S1170,200 1158,420 S834,800 529,788 S-50,640 -50,400Z"/>
+      <path pathLength="1" d="M-190,400 C-190,96 143,-90 550,-70 S1290,155 1275,424 S883,890 513,875 S-190,694 -190,400Z"/>
+      <ellipse class="pond" cx="640" cy="408" rx="58" ry="34"/>
+    </svg>
+
+    <p class="hero-lead">
+      수안보 온천에서 1km.<br>
+      숲과 계곡 사이에서 한 박자 쉬어 가는 자연주의 농장입니다.
+      <span>충청북도 충주시 수안보면</span>
+    </p>
+    <h1>슬로우파머</h1>
+  </header>
+
+  <main>
+
+    <section>
+      <p class="intro">
+        슬로우파머는 충주 수안보 산자락에 있는 임산물 농장입니다.
+        산나물과 꽃, 허브를 기르고, 방문객은 그 재료로 직접 차를 만들고 숲을 걷습니다.
+        농장이 스스로 내세우는 이름은 '순수 자연주의'입니다.
+      </p>
+    </section>
+
+    <section>
+      <h2>한눈에 보기</h2>
+      <dl class="facts">
+        <div>
+          <dt>위치</dt>
+          <dd>충북 충주시 수안보면 탑골1길 178
+            <small>수안보 온천에서 약 1km</small></dd>
+        </div>
+        <div>
+          <dt>넓이</dt>
+          <dd>약 33만㎡ (약 10만 평)</dd>
+        </div>
+        <div>
+          <dt>기르는 것</dt>
+          <dd>산나물, 꽃, 허브
+            <small>임산물은 토양 검사를 거쳐 무농약·무화학비료 인증을 받았습니다 (2021년 보도 기준)</small></dd>
+        </div>
+        <div>
+          <dt>이용</dt>
+          <dd>사전 예약 필수</dd>
+        </div>
+        <div>
+          <dt>참가비</dt>
+          <dd>1인 4만 원 안팎
+            <small>프로그램마다 다릅니다 (2025년 10월 농촌진흥청 웹진 기준)</small></dd>
+        </div>
+        <div>
+          <dt>인증</dt>
+          <dd>우수 치유농업시설
+            <small>한국농업기술진흥원 제1회 인증제, 2026년</small></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section>
+      <h2>농장에서 하는 체험</h2>
+
+      <div class="program">
+        <h3>허브 꽃차 만들기</h3>
+        <p>농장에서 기른 꽃과 허브로 꽃차 티백을 만들고, 그 자리에서 우려 마십니다. 농장의 대표 프로그램입니다.</p>
+      </div>
+
+      <div class="program">
+        <h3>숲속 트레킹</h3>
+        <p>농장의 트레킹 코스를 따라 숲을 천천히 걷습니다. 계곡 옆에는 명상 공간이 있습니다.</p>
+      </div>
+
+      <div class="program">
+        <h3>산나물 채취와 음식 만들기</h3>
+        <p>산나물을 직접 따서 페스토나 장아찌로 만들어 봅니다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>농장 안 공간</h2>
+      <ul class="places">
+        <li>계곡</li>
+        <li>연못</li>
+        <li>실내 온실</li>
+        <li>체험장</li>
+        <li>야외 명상장</li>
+        <li>야외 행사장 '탑 시크릿 가든'</li>
+      </ul>
+      <p>산 가운데 자리한 연못은 농장 대표가 "농장의 심장"이라고 소개하는 곳입니다.</p>
+    </section>
+
+    <section>
+      <h2>걸어온 길</h2>
+      <ol class="history">
+        <li><time datetime="2018">2018</time><span>농업회사법인 슬로우파머 설립</span></li>
+        <li><time datetime="2020">2020</time><span>가을, 숲속에서 팜파티 개최</span></li>
+        <li><time datetime="2024">2024</time><span>6월 '여행가는 달' 테마여행 코스에 포함</span></li>
+        <li><time datetime="2026">2026</time><span>2월 우수 치유농업시설 인증.<br>가을, 충북 글로벌 웰니스 팸투어에서 7개국 외국인 20명이 꽃차 체험에 참여</span></li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>가는 길</h2>
+      <address>충청북도 충주시 수안보면 탑골1길 178</address>
+      <p>수안보 온천에서 약 1km 떨어져 있습니다.</p>
+      <a class="map-link" href="https://map.kakao.com/link/search/충북%20충주시%20수안보면%20탑골1길%20178" target="_blank" rel="noopener">카카오맵에서 위치 보기</a>
+    </section>
+
+    <section>
+      <h2>방문 전에</h2>
+      <div class="notice">
+        <p>모든 프로그램은 사전 예약이 필요합니다.</p>
+        <p>계절에 따라 프로그램과 참가비가 달라질 수 있으니, 방문 전에 농장에 확인하세요.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="inner">
+      <h2>출처</h2>
+      <ul>
+        <li><a href="https://rda.go.kr/webzine/2025/10/sub_43.html">농촌진흥청 그린매거진, 2025년 10월호</a></li>
+        <li><a href="https://www.nongsaro.go.kr/portal/ps/psb/psby/vodPlay.ps?mvpNo=2092">농사로, 치유농업 운영 사례 영상</a></li>
+        <li><a href="https://www.ccdailynews.com/news/articleView.html?idxno=2396268">충청일보, 충주 4개 농장 우수 치유농업시설 인증</a></li>
+        <li><a href="https://ccdn.co.kr/news/articleView.html?idxno=1102346">충청매일, 충북 글로벌 웰니스 팸투어</a></li>
+        <li><a href="http://www.bizhankook.com/bk/article/23181">비즈한국, 충주 웰니스 여행</a></li>
+        <li><a href="https://v.daum.net/v/20240521113341648?f=p">헤럴드경제, 6월 여행가는 달 테마여행</a></li>
+      </ul>
+      <p>공개된 보도와 기관 자료를 바탕으로 2026년 10월에 정리한 소개 페이지입니다. 최신 운영 정보는 농장에 확인하세요.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
