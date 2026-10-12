@@ -1,1 +1,289 @@
-관광
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BARA | 관광의 기획부터 평가까지</title>
+<meta name="description" content="BARA는 관광 컨설팅, 기획, 평가를 하는 회사입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Gothic+A1:wght@400;500;700&display=swap">
+<style>
+  /* 배치: 큰 워드마크와 한 줄 소개 → 선 하나가 풍경이 되는 그림 → 이름, 하는 일, 일하는 방식, 사례, nova, 연락처를 왼쪽 정렬로 차분하게 */
+  :root {
+    --paper: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #1d2433;
+    --ink-soft: #5a6375;
+    --line: #d9dde5;
+    --accent: #2b4fc4;   /* 코발트: 기획의 선 */
+    --sun: #d98f1f;      /* nova의 별 */
+    --font-mark: "Syne", "Gothic A1", sans-serif;
+    --font-body: "Gothic A1", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12151c; --surface: #1a1f29; --ink: #e8ebf2; --ink-soft: #a3abbb; --line: #2c3341;
+      --accent: #7f9cff; --sun: #f0b54f; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12151c; --surface: #1a1f29; --ink: #e8ebf2; --ink-soft: #a3abbb; --line: #2c3341;
+    --accent: #7f9cff; --sun: #f0b54f; color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  h1, h2, h3, p { margin: 0; }
+  h2, h3 { font-weight: 700; line-height: 1.35; text-wrap: balance; }
+  a { color: var(--accent); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  .wrap {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding-inline: clamp(1rem, 5vw, 3rem);
+  }
+
+  /* 첫 화면 */
+  .hero { padding-block: clamp(3rem, 10vw, 6.5rem) 0; }
+  .wordmark {
+    font-family: var(--font-mark);
+    font-weight: 800;
+    font-size: clamp(4.5rem, 19vw, 11rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+  }
+  .tagline {
+    margin-top: clamp(1rem, 3vw, 1.75rem);
+    font-size: clamp(1.35rem, 3.6vw, 2.1rem);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .hero-sub { margin-top: 0.75rem; color: var(--ink-soft); max-width: 32em; }
+  .landline { display: block; width: 100%; height: auto; margin-top: clamp(2rem, 6vw, 3.5rem); color: var(--ink); }
+
+  main { display: flex; flex-direction: column; gap: clamp(4rem, 10vw, 7rem); padding-block: clamp(3rem, 8vw, 5rem); }
+  section { display: flex; flex-direction: column; gap: 1.75rem; }
+  .label { font-size: 0.9rem; font-weight: 500; color: var(--accent); }
+  h2 { font-size: clamp(1.5rem, 3.8vw, 2.2rem); }
+  .head { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  /* 이름 */
+  .name-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: start; }
+  .name-word { font-family: var(--font-mark); font-weight: 800; font-size: clamp(2.6rem, 7vw, 4rem); line-height: 1; }
+  .name-word small { display: block; font-family: var(--font-body); font-weight: 400; font-size: 1rem; color: var(--ink-soft); margin-top: 0.6rem; }
+  .name-text { font-size: 1.15rem; display: flex; flex-direction: column; gap: 1rem; max-width: 34em; }
+
+  /* 하는 일 */
+  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1.25rem; }
+  .service { background: var(--surface); border: 1px solid var(--line); border-radius: 0.9rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; min-width: 0; }
+  .service svg { width: 3rem; height: 3rem; color: var(--accent); }
+  .service h3 { font-size: 1.3rem; }
+  .service p { color: var(--ink-soft); }
+
+  /* 일하는 방식 */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--ink); }
+  .steps li { padding: 1.25rem 1.5rem 0 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .steps li + li { padding-left: 1.5rem; border-left: 1px solid var(--line); }
+  .step-no { font-family: var(--font-mark); font-weight: 700; font-size: 1rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .steps h3 { font-size: 1.35rem; }
+  .steps p { color: var(--ink-soft); }
+
+  /* 사례 */
+  .case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 1.1rem; padding: clamp(1.25rem, 3vw, 2rem); }
+  .case svg { width: 100%; height: auto; color: var(--ink); }
+  .case-body { display: flex; flex-direction: column; gap: 0.9rem; }
+  .case-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; font-size: 0.92rem; color: var(--ink-soft); }
+  .pill { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid var(--accent); color: var(--accent); border-radius: 999px; padding: 0.1rem 0.75rem; font-weight: 500; }
+  .pill::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--accent); }
+  .case h3 { font-size: 1.4rem; }
+  .case p { color: var(--ink-soft); }
+
+  /* nova */
+  .nova { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(1.25rem, 4vw, 2.5rem); align-items: start; }
+  .nova svg { width: clamp(4rem, 12vw, 6rem); height: auto; color: var(--sun); }
+  .nova-body { display: flex; flex-direction: column; gap: 1rem; max-width: 36em; }
+  .nova-name { font-family: var(--font-mark); font-weight: 700; font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.1; }
+  .nova-body p { font-size: 1.1rem; }
+
+  /* 연락처 */
+  .contact { margin: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .contact div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 1rem; padding-block: 1rem; border-bottom: 1px solid var(--line); }
+  .contact dt { color: var(--ink-soft); }
+  .contact dd { margin: 0; font-weight: 500; }
+
+  .ig { display: inline-block; padding: 0.6rem 1.2rem; border-radius: 0.5rem; background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 500; }
+  .ig:hover { background: var(--accent); }
+
+  /* 채워 넣을 자리 */
+  .todo { display: inline-block; border: 1.5px dashed var(--ink-soft); border-radius: 0.4rem; padding: 0 0.6rem; color: var(--ink-soft); font-weight: 400; }
+
+  footer { border-top: 1px solid var(--line); padding-block: 1.5rem 2.5rem; color: var(--ink-soft); font-size: 0.9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; }
+  .foot-mark { font-family: var(--font-mark); font-weight: 800; color: var(--ink); letter-spacing: 0.04em; }
+
+  @media (max-width: 44rem) {
+    .name-row, .case { grid-template-columns: minmax(0, 1fr); }
+    .steps { grid-template-columns: minmax(0, 1fr); border-top: 0; }
+    .steps li, .steps li + li { padding: 1.1rem 0 1.25rem; border-left: 0; border-top: 1px solid var(--line); }
+    .steps li:first-child { border-top: 2px solid var(--ink); }
+    .nova { grid-template-columns: minmax(0, 1fr); }
+    .contact div { grid-template-columns: 6.5rem minmax(0, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="wordmark">BARA</h1>
+    <p class="tagline">관광의 기획부터 평가까지.</p>
+    <p class="hero-sub">관광 컨설팅, 기획, 평가를 하는 회사입니다.</p>
+  </div>
+  <div class="wrap">
+    <svg class="landline" viewBox="0 0 1200 200" role="img" aria-label="한 줄의 선이 산과 호수, 집과 나무, 바다로 이어지는 그림">
+      <path d="M0 170 H170 L230 112 L262 140 L322 70 L392 170 C420 170 440 150 476 150 C512 150 532 170 560 170 H600 V136 L632 108 L664 136 V170 H724 V122 C698 122 696 78 724 78 C752 78 750 122 724 122 V170 H812 q20 -18 40 0 t40 0 t40 0 t40 0 t40 0 H1080"
+            fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="622" y="146" width="20" height="24" fill="none" stroke="currentColor" stroke-width="3"/>
+      <ellipse cx="476" cy="162" rx="22" ry="3" fill="var(--accent)" opacity="0.6"/>
+      <polygon points="1126,96 1132,112 1148,118 1132,124 1126,140 1120,124 1104,118 1120,112" fill="var(--sun)"/>
+      <path d="M1080 170 C1100 170 1110 150 1118 132" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9"/>
+    </svg>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section aria-labelledby="name-h">
+    <div class="head">
+      <p class="label">이름</p>
+      <h2 id="name-h">BARA라는 이름</h2>
+    </div>
+    <div class="name-row">
+      <p class="name-word">BARA<small>[바라] 히브리어, '창조하다'</small></p>
+      <div class="name-text">
+        <p>BARA는 히브리어로 '창조하다'라는 뜻입니다.</p>
+        <p>우리는 관광 현장에 아직 없는 프로그램과 경험을 기획하고, 그 결과가 실제로 효과를 냈는지 평가합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="work-h">
+    <div class="head">
+      <p class="label">하는 일</p>
+      <h2 id="work-h">컨설팅, 기획, 평가</h2>
+    </div>
+    <div class="services">
+      <article class="service">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="20" cy="20" r="12"/><line x1="29" y1="29" x2="42" y2="42"/><path d="M14 22 l4 -6 l4 4 l4 -6"/>
+        </svg>
+        <h3>컨설팅</h3>
+        <p>관광 사업체와 체험 시설의 현황을 진단하고, 프로그램과 운영 방식의 개선 방향을 제시합니다.</p>
+      </article>
+      <article class="service">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 40 C14 40 14 28 22 28 S30 16 38 16"/><circle cx="6" cy="40" r="2.5"/><path d="M34 6 l8 8 l-12 12 l-9 1 l1 -9 Z"/>
+        </svg>
+        <h3>기획</h3>
+        <p>체험 프로그램, 관광 상품, 지역 행사를 기획합니다. 대상 고객과 운영 여건에 맞춰 실행할 수 있는 계획을 만듭니다.</p>
+      </article>
+      <article class="service">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="8" y="6" width="32" height="38" rx="3"/><path d="M15 17 l3 3 l6 -6"/><line x1="28" y1="17" x2="34" y2="17"/><path d="M15 31 l3 3 l6 -6"/><line x1="28" y1="31" x2="34" y2="31"/>
+        </svg>
+        <h3>평가</h3>
+        <p>관광 사업과 프로그램이 목표한 성과를 냈는지 기준을 세워 점검하고, 다음 단계에 쓸 개선점을 정리합니다.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="way-h">
+    <div class="head">
+      <p class="label">일하는 방식</p>
+      <h2 id="way-h">기획보다 먼저 듣습니다</h2>
+    </div>
+    <ol class="steps">
+      <li><span class="step-no">01</span><h3>듣기</h3><p>운영자, 주민, 방문객의 이야기를 현장에서 먼저 듣습니다.</p></li>
+      <li><span class="step-no">02</span><h3>기획</h3><p>들은 내용을 바탕으로 실행할 수 있는 방향을 세웁니다.</p></li>
+      <li><span class="step-no">03</span><h3>평가</h3><p>결과가 실제로 효과를 냈는지 확인하고 다음을 준비합니다.</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="case-h">
+    <div class="head">
+      <p class="label">수행 사례</p>
+      <h2 id="case-h">함께하고 있는 현장</h2>
+    </div>
+    <article class="case">
+      <svg viewBox="0 0 320 210" role="img" aria-label="숲이 있는 언덕 앞에 놓인 꽃차 잔 그림" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 150 C60 110 100 96 150 120 S250 92 310 128"/>
+        <path d="M40 132 L54 92 L68 128"/><path d="M78 118 L94 76 L110 114"/><path d="M226 106 L240 70 L254 104"/><path d="M262 112 L274 82 L286 116"/>
+        <line x1="10" y1="186" x2="310" y2="186"/>
+        <path d="M118 150 H186 V162 C186 178 172 186 152 186 C132 186 118 178 118 162 Z"/>
+        <path d="M186 156 C200 156 200 172 186 172"/>
+        <path d="M140 140 q-6 -8 0 -16 t0 -14"/><path d="M160 140 q-6 -8 0 -16 t0 -14"/>
+        <circle cx="152" cy="160" r="5" fill="var(--sun)" stroke="none"/>
+        <circle cx="146" cy="166" r="3" fill="var(--sun)" stroke="none" opacity="0.7"/>
+        <circle cx="160" cy="167" r="3" fill="var(--sun)" stroke="none" opacity="0.7"/>
+      </svg>
+      <div class="case-body">
+        <div class="case-meta"><span class="pill">진행 중</span><span>2026년 10월~</span></div>
+        <h3>충주 슬로우파머 체험 프로그램 컨설팅</h3>
+        <p>충북 충주 수안보에 있는 자연주의 임산물 농장입니다. 2026년 한국농업기술진흥원 우수 치유농업시설로 인증받았고, 꽃차 만들기와 숲속 트레킹을 대표 프로그램으로 운영합니다.</p>
+        <p>BARA는 이 농장의 체험 프로그램 컨설팅을 맡아 현장 진단, 프로그램 구성, 운영 방식 개선을 진행하고 있습니다.</p>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="nova-h">
+    <div class="head">
+      <p class="label">여행 채널</p>
+      <h2 id="nova-h">새로운 시선으로 기록하는 여행</h2>
+    </div>
+    <div class="nova">
+      <svg viewBox="0 0 96 96" aria-hidden="true">
+        <polygon points="48,6 56,40 90,48 56,56 48,90 40,56 6,48 40,40" fill="currentColor"/>
+      </svg>
+      <div class="nova-body">
+        <p class="nova-name">Bara_nova</p>
+        <p>nova는 라틴어로 '새로운'이라는 뜻입니다. Bara_nova는 새로운 시선으로 여행지를 기록하는 BARA의 여행 채널입니다.</p>
+        <p><a class="ig" href="https://www.instagram.com/bara_nova2026/" target="_blank" rel="noopener">인스타그램에서 보기 @bara_nova2026</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact-h">
+    <div class="head">
+      <p class="label">연락처</p>
+      <h2 id="contact-h">함께 일하고 싶다면</h2>
+    </div>
+    <dl class="contact">
+      <div><dt>대표</dt><dd>이효정</dd></div>
+      <div><dt>이메일</dt><dd><span class="todo">이메일 입력 예정</span></dd></div>
+      <div><dt>인스타그램</dt><dd><a href="https://www.instagram.com/bara_nova2026/" target="_blank" rel="noopener">@bara_nova2026</a></dd></div>
+    </dl>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-mark">BARA</span>
+    <span>관광의 기획부터 평가까지</span>
+  </div>
+</footer>
+
+</body>
+</html>
